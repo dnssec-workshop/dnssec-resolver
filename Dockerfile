@@ -21,7 +21,7 @@ RUN     apt-get install -y --no-install-recommends swig libssl-dev gcc python-de
 RUN     apt-get install -y --no-install-recommends gitweb
 
 ## Setup apache webderver
-RUN     apt-get install -y --no-install-recommends apache
+RUN     apt-get install -y --no-install-recommends apache2
 RUN     a2enmod cgid
 RUN     a2dissite 000-default
 RUN     mkdir /var/log/apache2/mod_cgi && chown www-data: /var/log/apache2/mod_cgi
