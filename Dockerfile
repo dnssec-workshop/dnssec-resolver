@@ -48,6 +48,6 @@ RUN     a2ensite dnsviz.test gitweb.test doc.test
 RUN     mkdir -p /var/log/supervisor
 
 EXPOSE  22 53
-CMD     [ "/usr/bin/supervisord -c /etc/supervisor/conf.d/dnssec-resolver.conf" ]
+CMD     [ "/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/dnssec-resolver.conf" ]
 
 # vim: set syntax=docker tabstop=2 expandtab:
