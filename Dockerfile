@@ -34,12 +34,13 @@ RUN     cd /opt && git clone https://github.com/dnsviz/dnsviz && \
 
 # Compile ECDSA into m2crypto
 RUN     cd /opt && git clone https://gitlab.com/m2crypto/m2crypto.git && \
-          cd m2crypto && git chekout 0.23.0 && \
+          cd m2crypto && git checkout 0.23.0 && \
           patch -p1 < /opt/dnsviz/contrib/m2crypto-0.23.patch && \
           python setup.py build && python setup.py install
 
 # Deploy DNSSEC workshop material
-RUN     cd /root && git clone https://github.com/dnssec-workshop/dnssec-data && rsync -v -rptgoD --copy-links /root/dnssec-data/dnssec-resolver/ /
+RUN     cd /root && git clone https://github.com/dnssec-workshop/dnssec-data && \
+          rsync -v -rptgoD --copy-links /root/dnssec-data/dnssec-resolver/ /
 
 # Activate Webserver config
 RUN     a2ensite dnsviz.test gitweb.test doc.test
