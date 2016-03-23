@@ -15,7 +15,7 @@ RUN     apt-get upgrade -y
 ## Install tools for DNSViz
 RUN     apt-get install -y --no-install-recommends make python-dnspython python-pygraphviz
 ## Install libs and tools for m2crypto patch + compile
-RUN     apt-get install -y --no-install-recommends swig libssl-dev gcc python-dev patch
+RUN     apt-get install -y --no-install-recommends swig libssl-dev gcc python-dev patch python-setuptools
 
 ## Install further tools
 RUN     apt-get install -y --no-install-recommends gitweb
