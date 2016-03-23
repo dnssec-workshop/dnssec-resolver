@@ -5,6 +5,8 @@ FROM dnssecworkshop/dnssec-bind
 
 MAINTAINER dape16 "dockerhub@arminpech.de"
 
+LABEL RELEASE=20160323-2233
+
 # Set timezone
 ENV     TZ=Europe/Berlin
 RUN     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
