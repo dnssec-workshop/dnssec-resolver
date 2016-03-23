@@ -28,14 +28,14 @@ RUN     mkdir /var/log/apache2/mod_cgi && chown www-data: /var/log/apache2/mod_c
 RUN     mkdir /var/cache/git && chown www-data: /var/cache/git
 
 # Build DNSViz
-RUN     cd /opt && git clone https://github.com/dnsviz/dnsviz \
-          cd dnsviz && git checkout v0.5.1 \
+RUN     cd /opt && git clone https://github.com/dnsviz/dnsviz && \
+          cd dnsviz && git checkout v0.5.1 && \
           python setup.py build && python setup.py install
 
 # Compile ECDSA into m2crypto
-RUN     cd /opt && git clone https://gitlab.com/m2crypto/m2crypto.git \
-          cd m2crypto && git chekout 0.23.0 \
-          patch -p1 < /opt/dnsviz/contrib/m2crypto-0.23.patch \
+RUN     cd /opt && git clone https://gitlab.com/m2crypto/m2crypto.git && \
+          cd m2crypto && git chekout 0.23.0 && \
+          patch -p1 < /opt/dnsviz/contrib/m2crypto-0.23.patch && \
           python setup.py build && python setup.py install
 
 # Deploy DNSSEC workshop material
