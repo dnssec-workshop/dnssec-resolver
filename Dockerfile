@@ -24,7 +24,7 @@ RUN     apt-get install -y --no-install-recommends gitweb
 
 ## Setup apache webderver
 RUN     apt-get install -y --no-install-recommends apache2
-RUN     a2enmod cgid
+RUN     a2enmod cgid rewrite
 RUN     a2dissite 000-default
 RUN     mkdir /var/log/apache2/mod_cgi && chown www-data: /var/log/apache2/mod_cgi
 RUN     mkdir /var/cache/git && chown www-data: /var/cache/git
@@ -46,6 +46,10 @@ RUN     cd /root && git clone https://github.com/dnssec-workshop/dnssec-data && 
 
 # Activate Webserver config
 RUN     a2ensite dnsviz.test gitweb.test doc.test
+
+# Configure bind nocaching resolver
+RUN     mkdir -p /var/cache/bind.nocache && \
+          chown bind: /var/cache/bind.nocache
 
 # Start services using supervisor
 RUN     mkdir -p /var/log/supervisor
