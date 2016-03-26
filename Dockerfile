@@ -5,7 +5,7 @@ FROM dnssecworkshop/dnssec-bind
 
 MAINTAINER dape16 "dockerhub@arminpech.de"
 
-LABEL RELEASE=20160326-1403
+LABEL RELEASE=20160326-1941
 
 # Set timezone
 ENV     TZ=Europe/Berlin
