@@ -44,6 +44,9 @@ RUN     cd /opt && git clone https://gitlab.com/m2crypto/m2crypto.git && \
 RUN     cd /root && git clone https://github.com/dnssec-workshop/dnssec-data && \
           rsync -v -rptgoD --copy-links /root/dnssec-data/dnssec-resolver/ /
 
+# Deploy doc wiki
+RUN     cd /root && git clone https://github.com/dnssec-workshop/dnssec-doc
+
 # Activate Webserver config
 RUN     a2ensite dnsviz.test gitweb.test doc.test
 
