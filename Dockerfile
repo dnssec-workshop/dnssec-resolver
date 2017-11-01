@@ -5,7 +5,7 @@ FROM dnssecworkshop/dnssec-bind
 
 MAINTAINER dape16 "dockerhub@arminpech.de"
 
-LABEL RELEASE=20171030-2238
+LABEL RELEASE=20171101-2303
 
 # Set timezone
 ENV     TZ=Europe/Berlin
@@ -20,7 +20,7 @@ RUN     apt-get install -y --no-install-recommends make python-dnspython python-
 RUN     apt-get install -y --no-install-recommends swig libssl-dev gcc python-dev patch python-setuptools
 
 ## Install further tools
-RUN     apt-get install -y --no-install-recommends gitweb
+RUN     apt-get install -y --no-install-recommends gitweb libcgi-pm-perl
 
 ## Setup apache webderver
 RUN     apt-get install -y --no-install-recommends apache2
